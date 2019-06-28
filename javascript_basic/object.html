@@ -8,16 +8,32 @@
 </head>
 <body>
     <script type="text/javascript">
-        /*var grades = {'egoing':10,'k8805':6,'sorialgi':80}; //js 객체사용법
+        var grades = {'egoing':10,'k8805':6,'sorialgi':80}; //js 객체사용법
         alert(grades.egoing);
-        */
+        
         var grades2 = new Object();  //js 객체사용법2
-        grades2['egoing']=10;
-        alert(grades2.egoing);
-
-        /*var grade3 = {};
+        grades2['egoing']=10;   
+        alert(grades2['ego'+'ing']);
+ 
+        var grade3 = {};  //js 객체사용법3
         grade3['egoing']=10;
-        alert(grade3.egoing);*/
+        alert(grade3.egoing);
+
+        for(key in grades){   // 반복문 grade객체안의 key와 value를 모두가져옴     grades[key] <- value
+            document.write("key : " + key + " value : " + grades[key]+"<br>");
+        }
+
+        for(var name in grades){
+            document.write("name : " + name + " value : " + grades[name] + "<br>");
+        }
+
+        var grades4 = {
+            'list' : {'egoing' : 10 , 'k8805' : 6  , 'sorialgi' : 80},
+            'show' : function(){
+                alert(this.list.k8805);
+            }
+        }
+        grades4['show']();
     </script>
 </body>
 </html>
