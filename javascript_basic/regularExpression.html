@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+        //정규표현식 : 문자열에서 특정한 문자를 찾아내는 도구
+        //두가지의 사용방법  1. 컴파일  2. 실행
+        //1.컴파일 : 패턴을 찾는것  2. 실행 : 작업을 구체적으로 하는것
+        
+        var str = "a";
+        
+        var pattern = new RegExp('a');  // 정규 표현식 객체를 만들어 pattern에 저장   == var pattern = /a/
+        
+        //사용법 1.원하는 정보 추출  2.확인하고자 하는 것의 존재유무 테스트  3.검색된 정보를 다른정보로 치환
+
+        var pattern = /a./
+
+        // . << 한개의 문자 , 어떠한문자가 오든 상관없음 
+
+        pattern.test('abcde'); // 찾고자하는 패턴이 존재하면 true 존재하지않으면 false를 리턴한다.
+
+
+        var str2 = "abcedf";
+
+        str2.match(pattern); // 패턴과 맞는게있으면 배열로 리턴
+        str.replace(pattern,'A'); //패턴과 일치하면 A로 바꿈
+
+        var oi = /a/i; //i << 대문자 소문자구분없앤다
+
+        var og = /a/g; // g << 중복된것도 모두 추출
+
+        var ig = /a/ig // 같이사용가능
+
+        
+    </script>
+</body>
+</html>

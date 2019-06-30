@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+            var i = 0; //전역변수
+            function fscope(){
+                var i =1; //지역변수
+                i =2; // var이 없다면 지역변수의 유무를 판단하고 존재하면 지역변수를 가르키고 없다면 전역변수를 가르킨다
+            }
+
+            // 클로저 내부함수가 외부함수의 맥락에 접근할 수있는것
+
+            function outter(){ //외부함수
+                var title = 'coding everybody';
+                function inner(){  //내부함수
+                    alert(title);
+                }
+            }   //내부함수는 외부함수에서만 사용하기때문에 가독성이 좋다
+    </script>
+</body>
+</html>
