@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+        //object는 모든 객체들의 원형이다.
+        //object객체가 가지고있는 prototype은 모든객체들의 prototype이다. 즉 모든객체들의 원형이다
+        //모든 객체들이 가지고있어야하는 기능은 object의 prototype으로 지정한다.
+
+        Object.prototype.contain = function(needle){  //위험함 왜냐하면 모든객체에 영향을 주기때문
+            for(var name in this){
+                if(this[name]===needle){
+                    return true;
+                }
+            }
+            return false; 
+        }
+
+        var o = {'name' : 'egoing'}  
+        alert(o.contain('graphittie')); 
+    </script>
+</body>
+</html>

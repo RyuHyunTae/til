@@ -1,0 +1,50 @@
+package algorithm;
+
+import java.util.Scanner;
+
+public class exmaple {
+	public static void main(String[] args) {
+		int c;
+		Scanner scan = new Scanner(System.in);
+		c = scan.nextInt();
+		int numA[][] = new int[c][100];
+		int sum[] = new int[c];
+		for (int i = 0; i < c; i++) {
+			numA[i][0] = scan.nextInt();
+			for (int j = 1; j < numA[i][0] + 1; j++) {
+				numA[i][j] = scan.nextInt();
+			}
+		}
+		for (int p = 0; p < c; p++) {
+			for (int q = 1; q < numA[p][0]; q++) {
+				for (int r = q + 1; r < numA[p][0] + 1; r++) {
+					sum[p] = sum[p] + euclid(numA[p][q], numA[p][r]);
+				}
+			}
+
+			for (int result = 0; result < c; result++) {
+				System.out.println(sum[result]);
+			}
+
+		}
+
+	}
+
+	public static int euclid(int a, int b) { // 유클리드호제법
+		int i, j, mid, result = 0;
+		i = a;
+		j = b;
+		while (true) {
+			mid = i % j;
+			if (mid == 0) {
+				result = j;
+				break;
+			}
+			i = j;
+			j = mid;
+
+		}
+		return result;
+	}
+
+}

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+        //원시데이터 : 숫자,문자열,불리언,null,undefined
+        var str='coding';
+        str.prop='everybody'; //str.prop순간 js내부적으로 string객체가 만들어져 저장되고 곧바로 제거된다 
+        //이것을 wrapper객체라고한다 원시데이터를 알맞은 데이터타입으로 감싸준다.
+        //원시데이터는 객체가 아니기때문에 객체처럼사용할수없지만 wrapper객체때문에 객체처럼사용할수있다.
+        //숫자 Number , 문자열 String ,불리언 Boolean , null x , undefined x
+        alert(str.prop); //undefined
+    </script>
+</body>
+</html>

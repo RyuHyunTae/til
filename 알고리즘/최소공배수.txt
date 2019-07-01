@@ -1,0 +1,54 @@
+package algorithm;
+
+import java.util.Scanner;
+
+public class exmaple {
+	public static void main(String[] args) {
+		int a, b, c;
+		
+
+		int num[] = null;
+		int e = 0, f = 0;
+		Scanner scan = new Scanner(System.in);
+		c = scan.nextInt();
+		int numA[] = new int[c];
+		int numB[] = new int[c];
+		int result[] = new int[c];
+		int max[]=new int[c];
+		for (int i = 0; i < c; i++) {
+			numA[i] = scan.nextInt();
+			numB[i] = scan.nextInt();
+		}
+		for (int j = 0; j < c; j++) {
+			result[j] = euclid(numA[j], numB[j]);
+			max[j]=sk(numA[j], numB[j], result[j]);
+		}
+
+		for (int k = 0; k < c; k++) {
+			System.out.println(max[k] + " ");
+		}
+	}
+
+	public static int euclid(int a, int b) { //유클리드호제법
+		int i, j, mid, result = 0;
+		i = a;
+		j = b;
+		while (true) {
+			mid = i % j;
+			if (mid == 0) {
+				result = j;
+				break;
+			}
+			i = j;
+			j = mid;
+
+		}
+		return result;
+	}
+	
+	public static int sk(int a,int b,int result) {
+		int max;
+		max=a*b/result;
+		return max;
+	}
+}

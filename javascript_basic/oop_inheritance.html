@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+    
+        function Person (name)
+        {
+            this.name = name;
+            this.introduce = function(){
+                return 'My name is '+this.name;
+            }
+        }
+
+        function Person2 (name)
+        {
+            this.name = name;
+        }
+        Person2.prototype.name=null;
+        Person2.prototype.introduce = function(){
+            return 'My name is '+this.name;
+        }   
+        //Person 과 Person2 결과 같음
+
+        
+        function Programmer(name){
+            this.name=name;
+        }
+        Programmer.prototype = new Person2();   //Programmer에 프로퍼티에 값으로 Person2객채를 한다. Person2객체를 생성하고 prototype 프로퍼티를 가지고있는지 확인하고 리턴한다.
+
+        var p1=new Programmer('egoing');
+        document.write(p1.introduce());
+        
+    </script>
+</body>
+</html>
