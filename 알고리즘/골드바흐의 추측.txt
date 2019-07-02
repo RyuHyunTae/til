@@ -1,0 +1,48 @@
+package algorithm;
+
+import java.util.Scanner;
+
+public class exmaple {
+	static int max = 1000000;
+
+	public static void main(String[] args) {
+		int c;
+		int a, d, e;
+		int count = 0;
+		Scanner scan = new Scanner(System.in);
+		int b[] = new int[max];
+		for (int i = 0; i < max; i++) {
+			b[i] = scan.nextInt();
+			if (b[i] == 0) {
+				break;
+			}
+			count++;
+		}
+		for (int j = 0; j < count; j++) {
+			for (int k = 0; k < max; k++) {
+				a = prime(k);
+				if (a != 1) {
+					d = b[j] - a;
+					e = prime(d);
+					if (e != 1) {
+						System.out.println(a + " + " + e);
+						break;
+					}
+				}
+			}
+		}
+	}
+
+	static int prime(int num) {
+		if (num < 2) {
+			return 1;
+		} else {
+			for (int i = 2; i < num - 1; i++) {
+				if (num % i == 0) {
+					return 1;
+				}
+			}
+		}
+		return num;
+	}
+}

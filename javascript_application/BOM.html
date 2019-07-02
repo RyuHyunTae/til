@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+        //BOM : Browser Object Model
+        //웹브라우저의 창이나 프래임을 추상화해서 프로그래밍적으로 제어할수 있도록 제공하는수단 
+
+        alert("경고창");
+        confirm('확인 취소');  // 확인시 true 취소 false 리턴
+        prompt('입력');
+
+        //Location 객체 : 문서의 주소와 관련된 객체 
+        //이 객체를 이용하여 윈도우의 문서 URL을 변경할 수 있고 , 문서의 위치와 관련해서 다양한 정보를 얻을수 있음
+        alert(location.toString());
+        alert(location.href);       // 둘다 현재 URL을 가르킨다
+        //http://opentutorials.org:80/module/1?id=1#hash
+        //http < protocol   opentutorials.org < host    80 < port   module < pathname   id=1 < search   hash < hash
+        alert(location.protocol);
+        alert(location.host);
+        alert(location.port);
+        alert(location.pathname);
+        alert(location.search);
+        alert(location.hash);
+
+
+        //Navigator 객체 : 주로 호환성 문제등을 위해서 사용한다.
+        //사용이유 : 브라우저마다 코드가 다르게 해야할 경우가있음
+        alert(navigator.appName); //웹브라우저이름
+
+
+        //창 제어
+        //window.open : 새창을 생성
+    </script>
+    
+    <input type="button" value="open" onclick="winopen();">
+    <input type="text" onkeypress="winmessage(this.value)">
+    <script type="text/javascript">
+        function winopen()
+        {
+            win=window.open('BOM_Example.html');
+        }
+        function winmessage(msg){
+            win.document.getElementById('message').innerText=msg;
+        }
+        function winclose(){
+            win.close();
+        }
+    </script>
+</body>
+</html>

@@ -31,7 +31,8 @@
         function Programmer(name){
             this.name=name;
         }
-        Programmer.prototype = new Person2();   //Programmer에 프로퍼티에 값으로 Person2객채를 한다. Person2객체를 생성하고 prototype 프로퍼티를 가지고있는지 확인하고 리턴한다.
+        Programmer.prototype = new Person2();   
+        //Programmer에 프로퍼티에 값으로 Person2객채를 한다. Person2객체를 생성하고 prototype 프로퍼티를 가지고있는지 확인하고 리턴한다.
 
         var p1=new Programmer('egoing');
         document.write(p1.introduce());
