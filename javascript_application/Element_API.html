@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script src="lib/jquery-3.4.1.min.js"></script>
+    <ul>
+        <li>HTML</li>
+        <li class="active">CSS</li>
+        <li id='active'>javascript</li>
+    </ul>
+    <a id='target' href="http://www.naver.com">www.naver.com</a>
+    <!--식별자-->
+    <script type="text/javascript">
+        var active = document.getElementById('active');
+        active.id='deactive';  //아이디가 바뀜
+        $('#deactive').css('color','blue');    
+    </script>
+
+    <!--조회-->
+    <script type="text/javascript">
+        var list = document.getElementsByClassName('active');
+        document.write(list[0].textContent);
+    </script>
+
+    <!--속성-->
+    <script type="text/javascript">
+        var t = document.getElementById('target');
+        alert(t.getAttribute('href'));
+        t.setAttribute('href','http://www.daum.net');
+        t.removeAttribute('href');
+    </script>
+     <a id='target2' href="https://www.naver.com">www.naver.com</a>
+    <!--jQuery 속성제어-->
+    <script type="text/javascript">
+        //jQuery객체의 메소드중 setAttribute,getAttribute에 대응하는 메소드는 attr , removeAttribute는 removeAttr
+
+        var t= $('#target2');
+        document.write(t.attr('href'));//attr -> attribute
+        document.write(t.prop('href'));//prop -> property
+    </script>
+</body>
+
+</html>

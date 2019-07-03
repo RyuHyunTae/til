@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script src="lib/jquery-3.4.1.min.js"></script>
+    <ul>
+        <li>HTML</li>
+        <li>CSS</li>
+        <li id="active">javascript</li>
+    </ul>
+    <script type="text/javascript">
+        var li = $('li');
+        li.css('text-decoration','underline'); // 암시적 반복 : 보이지 않는 반복문을 코드가 실행시켜주는것
+        
+        li.map(function(index,elem){
+            $(elem).css('color','blue');
+        })
+
+    </script>
+</body>
+
+</html>

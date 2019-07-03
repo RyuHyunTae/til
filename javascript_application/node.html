@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="lib/jquery-3.4.1.min.js"></script>
+</head>
+
+<body id="start">
+    <ul id="target">
+        <li>javascript</li>
+        <li>html</li>
+    </ul>
+    <script type="text/javascript">
+        //node객체:dom에서 최상위에있는객체      모든dom객체들은 node객체를 상속받는다
+        //Node.childNodes //ul엘리먼트의 li
+        //Node.firstChild //첫번째li
+        //Node.lastChild  //마지막li
+        //Node.nextSibling//첫번째부터 다음li
+        //Node.previousSibling // 이전li
+        //Node.contains()      // li엘리먼트가 있는지없는지 확인
+
+        var start = document.getElementById('start');
+        document.write(start.firstChild);
+        document.write(start.firstChild.nextSibling);
+        document.write(start.childNodes.length);
+
+        //현재 선택된 노드가 어떤 타입인지 판단하기위해 nodeType,nodeName API가있다.
+
+        //노드추가 API
+        //appendChild(child) : 노드의 마지막 자식으로 주어진 엘리먼트 추가 
+        //insertBefore(newElement,referenceElement) : appendChild와 동작방법은 같으나 두번째 인자로 엘리먼트가 전달되면 이것 앞에 엘리먼트가 추가 
+
+        //document.createElement(tagname) : 엘리먼트 노드를 추가한다
+        //document.createTextNode(data) : 텍스트노드를 추가한다
+        function add() {
+            var li = document.createElement('li');
+            var text = document.createTextNode('css');
+            li.appendChild(text);
+            target.appendChild(li);
+        }
+        add();
+    </script>
+
+    <div class="target">
+        content1
+    </div>
+
+    <div class="target">
+        content1
+    </div>
+
+    <script>
+        $('.target').before('<div>before</div>');
+        $('.target').after('<div>after</div>');
+        $('.target').prepend('<div>prepend</div>');
+        $('.target').append('<div>append</div>');
+    </script>
+
+</body>
+
+</html>

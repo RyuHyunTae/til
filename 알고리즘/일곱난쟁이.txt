@@ -1,0 +1,47 @@
+package algorithm;
+
+import java.util.Scanner;
+
+public class exmaple {
+	public static void main(String[] args) {
+		int a = 0, temp;
+		int count = 0;
+		Scanner scan = new Scanner(System.in);
+		int b[] = new int[9];
+		for (int i = 0; i < 9; i++) {
+			b[i] = scan.nextInt();
+			count = count + b[i];
+		}
+		for (int j = 0; j < 8; j++) {
+			for (int k = j + 1; k < 9; k++) {
+				a = count - (b[j] + b[k]);
+				if (a == 100) {
+					for (int ii = j; ii < 8; ii++) {
+						b[ii] = b[ii + 1];
+					}
+					for (int jj = k - 1; jj < 7; jj++) {
+						b[jj] = b[jj + 1];
+					}
+					break;
+				}
+			}
+			if (a == 100) {
+				break;
+			}
+
+			for (int x = 0; x < b.length - 1; x++) {
+				for (int y = x; y < b.length; y++) {
+					if (b[x] > b[y]) {
+						temp = b[x];
+						b[x] = b[y];
+						b[y] = temp;
+					}
+				}
+			}
+		}
+		for (int nu = 0; nu < 7; nu++) {
+			System.out.println(b[nu]);
+		}
+	}
+
+}

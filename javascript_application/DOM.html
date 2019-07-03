@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+    <ul>
+        <li>HTML</li>
+        <li class="active">CSS</li>
+        <li id='active'>javascript</li>
+    </ul>
+    <ul>
+        <li>HTML</li>
+        <li>CSS</li>
+        <li>javascript</li>
+    </ul>
+    <ol>
+        <li>HTML</li>
+        <li>CSS</li>
+        <li>javascript</li>
+    </ol>
+    <script type="text/javascript">
+        //DOM  
+        var ul = document.getElementsByTagName('ul')[0];  //첫번째 ul
+        var ul2 = document.getElementsByTagName('ul')[1]; //두번째 ul
+        var lis = ul.getElementsByTagName('li'); // 첫번째 ul의 li들
+        var lis2 =ul.getElementsByClassName('active'); //첫번째 ul의 클래스이름이 active인것을 고름 
+        var li=document.getElementById('active'); //id값이 active 인것을 고름
+        var li2 = document.querySelector('li'); // li값중 제일처음꺼를 고름
+        var li3 = document.querySelector('.active'); // .<< 클래스를 고름 .active하면 클래스가 active인것을 고름
+        var lis3 = document.querySelectorAll('li'); //li전체를 lis3에 저장
+        for(var name in lis3){
+            lis3[name].style.color='blue';
+        }
+        for(var i=0; i< lis.length;i++)
+        {
+            lis[i].style.color='red';  
+            
+        }
+    </script>
+</body>
+</html>

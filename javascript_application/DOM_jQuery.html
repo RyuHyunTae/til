@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+        <li>HTML</li>
+        <li class="active">CSS</li>
+        <li id="active">javascript</li>
+    </ul>
+
+
+    <!--<script src="//code.jquery.com/jquery-3.4.1.min.js"></script>-->
+    <!-- // <-- //내가 원하는 웹페이지 앞에 http가 붙으면 http로 https면 https로 동작-->
+    <script src="lib/jquery-3.4.1.min.js"></script>
+    <script type="text/javascript">
+        //jQuery dom을 내부에 감추고 보다 쉽게 웹페이지를 조작할수 있도록 돕는 도구
+        jQuery(document).ready(function($){
+            $('body').prepend('<h1>Hello world</h1>');
+        });
+        // $ <<jQuery 함수
+        $('li').css('color','red'); // <li style="color:red">  와 같은말
+        
+
+        $('.active').css('color','blue');  //. < 클래스
+
+        $('#active').css('textDecoration','underline').css('color','green'); //# < id
+
+    </script>
+</body>
+</html>

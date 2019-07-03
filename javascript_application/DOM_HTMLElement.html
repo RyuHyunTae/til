@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+        <li>HTML</li>
+        <li>CSS</li>
+        <li id="active">javascript</li>
+    </ul>
+    <a id="and"></a>
+    <input type="button" id="button" value="button" />
+    <script type="text/javascript">
+         //HTMLElement
+         var li = document.getElementById('active');
+         alert(li.constructor.name); //HTMLLIElement   id값은 하나이기때문
+         var lis = document.getElementsByTagName('li');
+         alert(lis.constructor.name);  //HTMLCollection : 리턴 결과가 복수인 경우에 사용하게 되는 객체
+
+        var target = document.getElementById('and');
+        alert(target.constructor.name); //HTMLAnchorElement
+         var target = document.getElementById('button');
+         alert(target.constructor.name); //HTMLInputElement    
+
+         //즉 3개가 객체가 다르기 때문에 안에 프로퍼티도 다르다.
+    </script>
+</body>
+</html>
