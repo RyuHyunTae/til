@@ -17,7 +17,7 @@
     <script type="text/javascript">
          //HTMLElement
          var li = document.getElementById('active');
-         alert(li.constructor.name); //HTMLLIElement   id값은 하나이기때문
+         alert(li.constructor.name); //HTMLLIElement   리턴 결과가 단수인 경우에 사용하게 되는 객체
          var lis = document.getElementsByTagName('li');
          alert(lis.constructor.name);  //HTMLCollection : 리턴 결과가 복수인 경우에 사용하게 되는 객체
 
@@ -26,7 +26,7 @@
          var target = document.getElementById('button');
          alert(target.constructor.name); //HTMLInputElement    
 
-         //즉 3개가 객체가 다르기 때문에 안에 프로퍼티도 다르다.
+         //즉 객체가 다르기 때문에 안에 프로퍼티도 다르다.
     </script>
 </body>
 </html>

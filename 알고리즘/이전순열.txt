@@ -1,0 +1,53 @@
+package algorithm;
+
+import java.util.Scanner;
+
+public class exmaple {
+	public static void main(String[] args) {
+
+		Scanner scan = new Scanner(System.in);
+		int b;
+		b = scan.nextInt();
+
+		int x[] = new int[b];
+		int count = 0;
+		for (int i = 0; i < b; i++) {
+			x[i] = scan.nextInt();
+		}
+
+		if (next_permutation(x,b) == false) {
+			System.out.println("-1");
+		} else {
+			for (int j = 0; j < b; j++) {
+				System.out.print(x[j] + " ");
+			}
+		}
+	}
+
+	public static boolean next_permutation(int[] a,int b) {
+		int i = b - 1;
+		while (i > 0 && a[i - 1] < a[i]) {
+			i -= 1;
+		}
+		if (i <= 0) {
+			return false;
+		}
+		int j = b - 1;
+		while (a[j] > a[i - 1]) {
+			j -= 1;
+		}
+		int temp = a[i - 1];
+		a[i - 1] = a[j];
+		a[j] = temp;
+		j = b - 1;
+		while (i < j) {
+			temp = a[i];
+			a[i] = a[j];
+			a[j] = temp;
+			i += 1;
+			j -= 1;
+		}
+		return true;
+	}
+
+}

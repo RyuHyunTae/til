@@ -1,0 +1,75 @@
+package algorithm;
+
+import java.util.Scanner;
+
+public class exmaple {
+	public static void main(String[] args) {
+		
+		Scanner scan = new Scanner(System.in);
+		int b;
+		b = scan.nextInt();
+
+		int x[] = new int[b];
+		int count=0;
+		for (int i = 0; i < b; i++) {
+			x[i] = scan.nextInt();
+		}
+		for (int z = 0; z < b; z++) {
+			for (int a = 1; a < 4; a++) {
+				for (int c = 1; c < 4; c++) {
+					for (int d = 1; d < 4; d++) {
+						for (int e = 1; e < 4; e++) {
+							for (int f = 1; f < 4; f++) {
+								for (int g = 1; g < 4; g++) {
+									for (int h = 1; h < 4; h++) {
+										for (int j = 1; j < 4; j++) {
+											for (int k = 1; k < 4; k++) {
+												for (int l = 1; l < 4; l++) {
+													if (a + c + d + e + f + g + h + j + k + l == x[z]) {
+														count++;
+													}
+												}
+												if (a + c + d + e + f + g + h + j + k == x[z]) {
+													count++;
+												}
+											}
+											if (a + c + d + e + f + g + h + j == x[z]) {
+												count++;
+											}
+										}
+										if (a + c + d + e + f + g + h == x[z]) {
+											count++;
+										}
+									}
+									if (a + c + d + e + f + g == x[z]) {
+										count++;
+									}
+								}
+								if (a + c + d + e + f == x[z]) {
+									count++;
+								}
+							}
+							if (a + c + d + e == x[z]) {
+								count++;
+							}
+						}
+						if (a + c + d == x[z]) {
+							count++;
+						}
+					}
+					if (a + c == x[z]) {
+						count++;
+					}
+				}
+				if (a == x[z]) {
+					count++;
+				}
+			}
+			System.out.println(count);
+			count=0;
+		}
+		
+	}
+	
+
+}

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+        <li id="target">html</li>
+        <li>css</li>
+        <li>javascript</li>
+    </ul>
+    <script>
+        //text 객체  노드를 상속받는 객체중 1개    
+        //실제 데이터를 담고있는 객체의 값을 알아내는것
+
+        //API nodeValue,data
+        var t = document.getElementById('target').firstChild;  //html <<
+        //alert(t.nodeValue);
+       // alert(t.data);
+        t.nodeValue="html2";
+        </script>
+
+        <p id="tage">coding everybody</p>
+        <p>data : <input type="text" id="datasource" value="java"></p>
+        <p> start : <input type="text" id="start" value="5"></p>
+        <p> end : <input type="text" id="end" value="5"></p>
+        <p><input type="button" value="appendData" onclick="callAppendData()">
+            <input type="button" value="deleteData" onclick="callDeleteData()">
+            <input type="button" value="insertData" onclick="callInsertData()">
+            <input type="button" value="replaceData" onclick="callReplaceData()">
+            <input type="button" value="substringData" onclick="callSubstringData()"></p>
+
+        <script>
+        //조작관련 API
+        //appendData()
+        //deleteData()
+        //insertData()
+        //replaceData()
+        //substringData() //정보중 일부의정보를 가공하는 api
+
+        var tage = document.getElementById('tage').firstChild;
+        var data = document.getElementById('datasource');
+        var start = document.getElementById('start');
+        var end = document.getElementById('end');
+
+        function callAppendData(){
+            tage.appendData(data.value);
+        }
+
+        function callDeleteData(){
+            tage.deleteData(start.value,end.value);
+        }
+        function callInsertData(){
+            tage.insertData(start.value,data.value);
+        }
+        function callReplaceData(){
+            tage.replaceData(start.value,end.value,data.value);
+        }
+        function callSubstringData(){
+            alert(tage.substringData(start.value,end.value));
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="lib/jquery-3.4.1.min.js"></script>
+</head>
+
+<body>
+    <input type="button" onclick="alert(window.location)" value="window.href">
+    <input type="button" onclick="window.open('bom.html')" value="'bom.html'">
+    <input type="text" onchange="alert(this.value)"> <!-- this를 하면 그태그를 가르킴 -->
+    <input type="button" id="target" value="button">
+    <input type="button" id="target2" value="button">
+    <script>
+        //이벤트 : 브라우저에서 사용자가 동작을 한것을 의미    
+        var t = document.getElementById('target');
+        t.onclick = function (event) {
+            //클릭하면 이벤트핸들러가 호출이된다 
+            //그때 첫번째 인자로 이밴트객체를 넘기기에 event라는 내부변수를 통해서 event객체를 사용한다 
+            //event.target은 이벤트가 어디에서 발생한지 알려줌 그러므로 event.target.value는 클릭한 버튼의 value값을 가져온다
+            alert('Hello world, ' + event.target.value);
+        }
+
+        var t2 = document.getElementById('target2');
+        t2.addEventListener('click', function (event) {
+            alert('Hello world , ' + event.target.value);
+        });
+
+        //addEeventListener를 사용하는이유 : addEventListener를 사용하지않으면 하나의 이벤트만 작동한다.
+        //하지만 addEventListeneer 이면 순차적으로 추가되어 작동된다.
+
+
+        // 캡처링 : 밖에서부터 안쪽으로 이벤트핸들러가 호출되는것 (부모에서부터 자식으로 나아가는것)
+        // 버블링 : 안쪽에서부터 밖으로 이벤트핸들러가 호출되는것 (자식에서부터 부모로 나아가는것)
+
+        function handler(event) {
+            var phases = ['capturing', 'target', 'bubbling']
+            console.log(event.target.nodeName, this.nodeName, phases[event.enentPhase - 1]);
+        }
+        function stopHandler(event) {
+            var phases = ['capturing', 'target', 'bubbling']
+            console.log(event.target.nodeName, this.nodeName, phases[event.enentPhase - 1]);
+            event.stopPropagation(); //호출을 멈춤
+        }
+
+        document.getElementById('target').addEventListener('click', handler, false);//false << 3번째인자는 캡쳐링으로
+        // true를 하면 캡쳐링방식으로 호출되고 false를 하면 버블링 방식으로 호출된다 만약 아무것도 주지않으면 기본값으로 false가 되어 버블링 방식이 된다.
+        // 사용이유 : 어떤 순서로 이벤트핸들러를 호출할것인지 
+        document.querySelector('body').addEventListener('click', stopHandler, false);
+        document.querySelector('html').addEventListener('click', handler, false);
+
+    </script>
+    <p>
+        <input type="checkbox" id="prevent">
+    </p>
+
+    <p>
+        <a id="a" href="https://www.naver.com"
+            onclick="if(document.getElementById('prevent').checked) return false">www.naver.com</a>
+        <!-- false를 주면 기본 동작을 취소할수있음-->
+    </p>
+    <script>
+        document.getElementById('a').addEventListener('click', function (event) {
+            if (document.getElementById('prevent').checked) {
+                event.preventDefault(); //이벤트핸들러를 사용할때는 preventDefault메소드를 사용
+            }
+        });
+    </script>
+
+    <input type="button" id="pure" value="pure">
+    <input type="button" id="jquery" value="jquery">
+    <script>
+        var target = document.getElementById('pure');
+        target.addEventListener('click', function (event) {
+            alert('pure');
+        });
+
+        $('#jquery').on('click', function (event) {  //click << 해당이벤트  , function << 이벤트가 동작했을때 실행될 함수
+            alert('jquery');
+        });
+
+        // .on(evnets,[selector],[data],handler(eventObjcet))
+    </script>
+
+    <ul>
+            <li><a href="#">html</a></li>
+            <li><a href="#">css</a></li>
+            <li><a href="#">javascript</a></li>
+    </ul>
+    <script>
+        $('ul').on('click','a,li',function(event){   //[selector] << 필터링하는것 ul태그를 설정했지만 a와li를 줬기때문에 a 와 li 만 동작함
+            alert("h2");
+        })
+    </script>
+
+    <input type="text" id="target3">
+    <p id="status"></p>
+    <script>
+        /*$('#target3').on('focus blur',function(e){
+            $('#status').html(e.type);
+        })*/
+        var handling = function(e)
+        {
+            $('#status').html(e.type);
+        }
+
+        $('#target3').on(
+            {
+                'focus':handling,
+                'blur' : handling
+            }
+        )
+    </script>
+    <input type="button" id="remove" value="remove">
+    <script>
+        $('#remove').on('click',function(e){
+            $('#target3').off('focus');
+        });
+    </script>
+</body>
+
+</html>
