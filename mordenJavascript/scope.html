@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //let : 블록단위의 스코프가 지원됨
+        /*
+        var name = "global var";
+
+        function home() {
+            var homevar = "homevar";
+            for (let i = 0; i < 100; i++) {
+                console.log(i); //적용
+            }
+            console.log(i); //에러
+            if (true) {
+                let myif = "myif";
+            }
+
+            console.log(myif);  //에러
+        }
+        home();*/
+    </script>
+
+    <ul>
+        <li>javascript</li>
+        <li>java</li>
+        <li>python</li>
+        <li>django</li>
+    </ul>
+
+
+    <script>
+        /*
+        var list = document.querySelectorAll("li");
+        for(let i=0;i<list.length;i++)    // var를 사용하면 함수밖에있는 i값을 참조하면서 마지막값인 4를 참조하게된다
+        {
+            list[i].addEventListener("click",function(){
+                console.log(i+ "번째 리스트 입니다");
+            });
+        }*/
+    </script>
+
+    <script>
+        /*
+        function home(){
+            const homename='my house';   //const << 변수값을 변경해서는 안될때 사용
+            //homename = "your house";   // 변경시 에러발생
+            console.log(homename);
+        }
+        home();
+        //const를 기본으로 사용한다.
+        //변경이 될 수 있는 변수는 let을 사용
+        //var를 사용하지않는다.
+        */
+    </script>
+
+    <script>
+        function home(){
+            const list = ["apple","orange","watermelon"];
+            list.push("banana"); //const를 사용하더라도 배열과 오브젝트의 값을 변경하는 것은 가능하다
+            console.log(list);
+        }
+    </script>
+</body>
+
+</html>

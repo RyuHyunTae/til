@@ -1,0 +1,67 @@
+package algorithm;
+
+import java.util.Scanner;
+
+public class exmaple {
+	public static void main(String[] args) {
+
+		Scanner sc = new Scanner(System.in);
+        int num = sc.nextInt();
+        int[][] money = new int[num][num];
+        int[] arr = new int[num];
+        for(int i=0; i<num; i++) {
+            arr[i] = i;
+            for(int j=0; j<num; j++) {
+                money[i][j] = sc.nextInt();
+            }
+        }
+         
+        int temp = Integer.MAX_VALUE;
+        while(next_permutation(arr, num)) {
+            int sum = 0;
+            boolean check = true;
+            for(int i=0; i<num-1; i++) {
+                if(money[arr[i]][arr[i+1]] == 0) {//통행료 0인지아닌지
+                    check = false;
+                }else {
+                    sum += money[arr[i]][arr[i+1]];
+                }
+            }
+            if(check && money[arr[num-1]][arr[0]] != 0) {//마지막에서 돌아가는거 더해주기
+                sum += money[arr[num-1]][arr[0]];
+                if(temp > sum) {
+                    temp = sum;
+                }
+            }
+        }
+        System.out.println(temp);
+
+	}
+
+	public static boolean next_permutation(int[] a, int b) {
+		int i = b - 1;
+		while (i > 0 && a[i - 1] > a[i]) {
+			i -= 1;
+		}
+		if (i <= 0) {
+			return false;
+		}
+		int j = b - 1;
+		while (a[j] < a[i - 1]) {
+			j -= 1;
+		}
+		int temp = a[i - 1];
+		a[i - 1] = a[j];
+		a[j] = temp;
+		j = b - 1;
+		while (i < j) {
+			temp = a[i];
+			a[i] = a[j];
+			a[j] = temp;
+			i += 1;
+			j -= 1;
+		}
+		return true;
+	}
+
+}

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+       /*
+        var data = [1,2,undefined,NaN,null,""];
+        for(var i=0;i<data.length;i++)
+        {
+            console.log(data[i]);
+        }
+
+        for(var idx in data)
+        {
+            console.log(data[idx]);
+        }
+
+        for(let idx in data)
+        {
+            console.log(data[idx]);
+        }
+
+        Array.prototype.getIndex = function(){};  //모든 배열에 getIndex라는 key와 value로 함수를 추가함
+                                                    //이방식을 사용시 모든배열에 getIndex가 들어가게됨
+        for(let value of data)  // for in 사용시 배열안의 모든값을 사용가능한데 
+                                //for of 사용시 data안에 있는 값만 사용할수있음
+        {
+            console.log(value);            
+        }
+
+        var str = "hello world";
+        for(let value of str)
+        {
+            console.log(value);
+        }
+        */
+    </script>
+
+    <script>
+        //spread operator : 펼침연산자
+        /*
+        let pre = ["apple" , "orange" , 100];
+        let newData = [...pre];     //...< 펼침연산자
+        console.log(pre===newData);  //값은 같은값이 출력되지만 실제로는 다름  배열을 복사하는거와 같음
+        */
+        /*
+        let pre = [100,200,300];
+
+        let newData = [0,1,2,3,...pre,4,5,6];
+
+        function sum(a,b,c){
+            return a+b+c;
+        }
+
+        console.log(sum(...pre));
+        */
+    </script>
+        
+    <script>
+        //ES6 from method
+        /*
+        function addMark(){
+            let newData = [];
+
+            for(let i=0;i<arguments.length;i++){  //특정인자값이 정해지지않았을때 argument를 이용하여 인자값이 있는것처럼 사용가능
+                newData.push(arguments[i]+"!");
+            }
+
+            console.log(newData);
+        }
+        */
+
+        function addMark(){
+            let newArray = Array.from(arguments);    //Array객체의 from메소드를 사용해서 arguments를 newArray배열로 만듬
+            let newData = newArray.map(function(value){
+                return value + "!";
+            });
+
+            console.log(newData);
+        }
+
+        addMark(1,2,3,4,5);
+    </script>
+</body>
+</html>

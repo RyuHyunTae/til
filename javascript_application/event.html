@@ -30,8 +30,8 @@
             alert('Hello world , ' + event.target.value);
         });
 
-        //addEeventListener를 사용하는이유 : addEventListener를 사용하지않으면 하나의 이벤트만 작동한다.
-        //하지만 addEventListeneer 이면 순차적으로 추가되어 작동된다.
+        //addEventListener를 사용하는이유 : addEventListener를 사용하지않으면 하나의 이벤트만 작동한다.
+        //하지만 addEventListener 이면 순차적으로 추가되어 작동된다.
 
 
         // 캡처링 : 밖에서부터 안쪽으로 이벤트핸들러가 호출되는것 (부모에서부터 자식으로 나아가는것)
@@ -41,7 +41,7 @@
             var phases = ['capturing', 'target', 'bubbling']
             console.log(event.target.nodeName, this.nodeName, phases[event.enentPhase - 1]);
         }
-        function stopHandler(event) {
+        function stopHandler(event) { 
             var phases = ['capturing', 'target', 'bubbling']
             console.log(event.target.nodeName, this.nodeName, phases[event.enentPhase - 1]);
             event.stopPropagation(); //호출을 멈춤

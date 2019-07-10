@@ -6,25 +6,30 @@ public class exmaple {
 	public static void main(String[] args) {
 
 		Scanner scan = new Scanner(System.in);
-		int b;
+		int b, factori;
+		int max=0;
 		b = scan.nextInt();
-
 		int x[] = new int[b];
 		int count = 0;
 		for (int i = 0; i < b; i++) {
 			x[i] = scan.nextInt();
 		}
-
-		if (next_permutation(x,b) == false) {
-			System.out.println("-1");
-		} else {
-			for (int j = 0; j < b; j++) {
-				System.out.print(x[j] + " ");
+		
+		factori=factorial(x);
+		int y[]= new int[factori];
+		while (true) {
+			y[count]=gap(x);
+			if(max<y[count])
+				max=y[count];
+			if (next_permutation(x, b) == false) {
+				break;
 			}
+			count++;
 		}
+		System.out.println(max);
 	}
 
-	public static boolean next_permutation(int[] a,int b) {
+	public static boolean next_permutation(int[] a, int b) {
 		int i = b - 1;
 		while (i > 0 && a[i - 1] > a[i]) {
 			i -= 1;
@@ -48,6 +53,23 @@ public class exmaple {
 			j -= 1;
 		}
 		return true;
+	}
+
+	public static int factorial(int[] a) {
+		int result = 1;
+		for (int i = 1; i < a.length + 1; i++) {
+			result = result * i;
+		}
+
+		return result;
+	}
+
+	public static int gap(int[] a) {
+		int result = 0;
+		for (int i = 0; i < a.length - 1; i++) {
+			result = result + Math.abs(a[i] - a[i + 1]);
+		}
+		return result;
 	}
 
 }
