@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const SETTING = {
+            name: "LUCKY LOTTO!",
+            count: 6,
+            maxNumber: 45
+        }
+
+        let mySet = new Set();
+
+        function getRandomNumber(maxNumber) {
+
+            let num=1;
+
+            for (let i = 0; i < num; i++) {
+                mySet.add(Math.floor(Math.random() * 100 % SETTING.maxNumber));
+                let array = [...mySet];
+                if(array.length!=SETTING.count)
+                {
+                    num++;
+                }
+            }
+
+            console.log(mySet);
+
+        }
+
+        getRandomNumber();
+    </script>
+</body>
+
+</html>

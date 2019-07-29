@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*let newArr = [1,2,3,4,5].map((v)=>v*2);
+        console.log(newArr);*/
+    </script>
+
+    <script>
+        /*
+        function sum (value,size=1){   // << default값
+            return value * size;
+        }
+        console.log(sum(3));
+        */
+    </script>
+
+
+    <script>
+        function checkNum(){
+            const argArray = Array.prototype.slice.call(arguments);
+            console.log(argArray);
+            const result = argArray.every((v)=>typeof v ==="number");
+            console.log(result);
+        }
+        const result = checkNum(10,2,3,4,5);
+    </script>
+</body>
+</html>

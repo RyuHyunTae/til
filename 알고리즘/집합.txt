@@ -1,0 +1,95 @@
+package algorithm;
+
+import java.io.IOException;
+import java.util.Scanner;
+
+public class exmaple {
+	static int[] arr, result;
+	static int num;
+	static String text;
+	static int n;
+	static int count = 0;
+	static int count2 = 0;
+	static int m = 3000000;
+
+	public static void main(String[] args) throws IOException {
+		Scanner scan = new Scanner(System.in);
+		n = scan.nextInt();
+		arr = new int[m];
+		result = new int[m];
+
+		for (int i = 0; i < n; i++) {
+			text = scan.next();
+			if (text.equals("all")) {
+				all();
+			} else if (text.equals("empty")) {
+				empty();
+			} else {
+				num = scan.nextInt();
+				if (text.equals("add")) {
+					arr[count] = num;
+					count++;
+				} else if (text.equals("check")) {
+					check();
+				} else if (text.equals("remove")) {
+					remove();
+				} else if (text.equals("toggle")) {
+					toggle();
+				}
+			}
+		}
+		for (int j = 0; j < count2; j++) {
+			System.out.println(result[j]);
+		}
+	}
+
+	private static void check() {
+		result[count2] = 0;
+		for (int i = 0; i < count; i++) {
+			if (arr[i] == num) {
+				result[count2] = 1;
+			}
+		}
+		count2++;
+	}
+
+	private static void remove() {
+		for (int i = 0; i < count; i++) {
+			if (arr[i] == num) {
+				arr[i] = 0;
+			}
+		}
+	}
+
+	private static void toggle() {
+		int a = 1;
+		for (int i = 0; i < count; i++) {
+			if (arr[i] == num) {
+				arr[i] = 0;
+				a = 0;
+			}
+		}
+		if (a == 1) {
+			arr[count] = num;
+			count++;
+		}
+	}
+
+	private static void all() {
+		for (int i = 0; i < count; i++) {
+			arr[i] = 0;
+			count = 0;
+		}
+		for (int j = 0; j < 20; j++) {
+			arr[j] = j + 1;
+			count++;
+		}
+	}
+
+	private static void empty() {
+		for (int i = 0; i < count; i++) {
+			arr[i] = 0;
+			count = 0;
+		}
+	}
+}

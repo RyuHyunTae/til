@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //destructuring (구조 분해 할당) : 배열이나 객체의 속성을 해체하여 그 값을 개별 변수에 담을수 있게하는 js표현식
+        /*
+        let data  = ["one","two","three","four"];
+        let [firs,,third] =data;  //배열에 저장된것에 이름을 붙힘
+        console.log(firs,third);
+        */
+    </script>
+
+    <script>
+        /*
+        let obj = {
+            name : "one",
+            address : "two",
+            age : "three"
+        }
+
+        let {name:myName, age:myAge}=obj;  //객체안에 저장된 키값도 변경가능
+        console.log(myName,myAge);
+        */
+    </script>
+
+    <script>
+        /*
+        var news = [
+            {
+                "title" : "one",
+                "imgurl" : "two",
+                "newslist" : "three"
+            },
+            {
+                "title" : "first",
+                "imgurl" : "second",
+                "newslist" : "third"
+            }
+        ];
+
+        //let [one]=news;
+        //console.log(one);
+
+        let [,first]=news;
+        console.log(first);
+        let {title,imgurl}=first;  //필요한 key값만 뽑아씀
+        console.log(title,imgurl);
+        */
+        </script>
+
+        <script>
+            /*
+            var news = [
+            {
+                "title" : "one",
+                "imgurl" : "two",
+                "newslist" : "three"
+            },
+            {
+                "title" : "first",
+                "imgurl" : "second",
+                "newslist" : "third"
+            }
+        ];
+
+        function getNewsList([{title}]){   //function의 파라메터를 이용해서도 사용가능
+            console.log(title);
+        }
+
+        getNewsList(news);
+        */
+        </script>
+        
+        <div>
+            이이잉
+        </div>
+
+        <script>
+            document.querySelector("div").addEventListener("click",function({target}){
+                target.innerText="앗살라말라이쿰";
+            })
+        </script>
+</body>
+</html>

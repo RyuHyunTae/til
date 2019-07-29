@@ -1,0 +1,47 @@
+package algorithm;
+
+import java.io.IOException;
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class exmaple {
+	static char[] arr;
+	static int[] result;
+	static int m, n;
+	static int max;
+	static int min;
+
+	public static void main(String[] args) throws IOException {
+		Scanner scan = new Scanner(System.in);
+		m = scan.nextInt();
+		n = scan.nextInt();
+		arr = new char[n];
+		result = new int[n];
+		for (int i = 0; i < n; i++) {
+			arr[i] = scan.next().toCharArray()[0];
+		}
+		Arrays.sort(arr);
+		print(0, 0, arr, 0, "", m);
+		
+	}
+
+	// z=자음 m=모음 arr2=입력값 idx=현재위치 pw=현재 비밀번호 L=선택할 개수
+	public static void print(int z, int m, char[] arr2, int idx, String pw, int L) {
+		if (idx >= arr2.length && pw.length() != L) {
+			return;
+		}
+		if (pw.length() == L && (m < 1 || z < 2))
+			return;
+		if (pw.length() == L && m >= 1 && z >= 2) {
+			System.out.println(pw);
+			return;
+		}
+		if (arr2[idx] == 'a' || arr2[idx] == 'e' || arr2[idx] == 'i' || arr2[idx] == 'o' || arr2[idx] == 'u') {
+			print(z, m + 1, arr, idx + 1, pw + arr[idx], L);
+		} else {
+			print(z + 1, m, arr, idx + 1, pw + arr[idx], L);
+		}
+		print(z, m, arr, idx + 1, pw, L);
+	}
+
+}

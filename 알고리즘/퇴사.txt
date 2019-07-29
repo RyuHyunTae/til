@@ -1,0 +1,36 @@
+package algorithm;
+
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class exmaple {
+	static int[] day, money;
+	static int n, sum = 0;
+	static int max = -1000000;
+
+	public static void main(String[] args) {
+		Scanner scan = new Scanner(System.in);
+		n = scan.nextInt();
+		day = new int[n + 5];
+		money = new int[n];
+		for (int i = 0; i < n; i++) {
+			day[i] = scan.nextInt();
+			money[i] = scan.nextInt();
+
+		}
+		zz(0, 0);
+		System.out.println(max);
+	}
+
+	public static void zz(int count, int sum) {
+		if (count == n) {
+			max = Math.max(max, sum);
+			return;
+		}
+		zz(count + 1, sum);
+		if (count + day[count] <= n) {
+			zz(count + day[count], sum + money[count]);
+		}
+	}
+
+}

@@ -1,0 +1,78 @@
+package algorithm;
+
+import java.io.IOException;
+import java.util.Scanner;
+
+public class exmaple {
+	static int[] arr, result, result2;
+	static int num;
+	static String text;
+	static int n;
+	static int count2 = 0;
+	static int m = 3000000;
+
+	public static void main(String[] args) throws IOException {
+		Scanner scan = new Scanner(System.in);
+		n = scan.nextInt();
+		m = scan.nextInt();
+
+		arr = new int[n];
+		result = new int[m];
+		result2 = new int[m];
+		for (int i = 0; i < n; i++) {
+			arr[i] = i + 1;
+		}
+		for (int l = 0; l < m; l++) {
+			result[l] = 0;
+		}
+		do {
+			if (equal(arr, result, m) == 0) {
+				for (int j = 0; j < m; j++) {
+					System.out.print(arr[j] + " ");
+					result[j] = arr[j];
+				}
+				System.out.println("");
+			}
+		} while (next_permutation(arr));
+
+	}
+
+	public static boolean next_permutation(int[] a) {
+		int i = a.length - 1;
+		while (i > 0 && a[i - 1] > a[i]) {
+			i -= 1;
+		}
+		if (i <= 0) {
+			return false;
+		}
+		int j = a.length - 1;
+		while (a[j] < a[i - 1]) {
+			j -= 1;
+		}
+		int temp = a[i - 1];
+		a[i - 1] = a[j];
+		a[j] = temp;
+		j = a.length - 1;
+		while (i < j) {
+			temp = a[i];
+			a[i] = a[j];
+			a[j] = temp;
+			i += 1;
+			j -= 1;
+		}
+		return true;
+	}
+
+	public static int equal(int[] arr, int[] result, int m) {
+		int count = 0;
+		for (int i = 0; i < m; i++) {
+			if (arr[i] == result[i]) {
+				count = 1;
+			} else {
+				count = 0;
+			}
+		}
+		return count;
+	}
+
+}
